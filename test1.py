@@ -28,4 +28,4 @@ def getHtmlText(url):
         return "Something Wrong"
 
 
-print(getHtmlText('http://www.baidu.com'))
+#print(getHtmlText('http://www.baidu.com'))
