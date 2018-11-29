@@ -17,6 +17,8 @@ def get_content(url):
     html = get_html(url)
     soup = BeautifulSoup(html,'lxml')
 
+    return soup
+
 def saveFile(dict):
     #with open ... as  读写文档
     with open('SD.txt','a+') as f:
