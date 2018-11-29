@@ -66,5 +66,8 @@ print(j)
 #我们可以通过get_text 方法 快速得到源文件中的所有text内容。
 #print(soup.get_text())
 
+#href 连接  获取所有<a>标签
 #for link in soup.find_all('a'):
 #    print(link.get('href'))
+
+#get_text() 获得源文件中所有text内容

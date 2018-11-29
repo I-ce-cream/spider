@@ -32,7 +32,11 @@ for child in head_tag.descendants:
 #另外通过tag的 .children生成器，可以对tag的子节点进行循环
 
 #tag的.descendants用来遍历子孙节点
+#for child in head_tag.descendants:
+#    print(child)
 
+#如果该tag只有一个子节点（NavigableString类型）：直接使用tag.string就能找到。
+#如果tag有很多个子、孙节点，并且每个节点里都string：
 #找出tag下子 孙 节点所有文本内容
 for string in soup.strings:
     print(repr(string))

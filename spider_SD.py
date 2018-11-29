@@ -41,6 +41,7 @@ def get_content(url):
     liTags = soup.find_all('li', attrs={'class': ' j_thread_list clearfix'})
 
     # 通过循环找到每个帖子里的我们需要的信息：
+    num = 1
     for li in liTags:
         # 初始化一个字典来存储文章信息
         comment = {}
@@ -58,8 +59,11 @@ def get_content(url):
             comment['replyNum'] = li.find(
                 'span', attrs={'class': 'threadlist_rep_num center_text'}).text.strip()
             comments.append(comment)
+            print(str(num))
+            num += 1
         except:
-            print('出了点小问题')
+            print(str(num) +' 出了点小问题')
+            num += 1
 
     return comments
 
