@@ -16,8 +16,21 @@ def get_content(url):
     comments = []
     html = get_html(url)
     soup = BeautifulSoup(html,'lxml')
-
-    return soup
+    
+    list_tags = soup.find_all('li',class_ = ' j_thread_list clearfix')
+    
+    for tag in list_tags:
+        comment = {}
+        try:
+            comment['title'] =tag.find('a',class_ = 'j_th_tit').text.strip()
+            comment['link'] ='http://tieba.baidu.com/'+ tag.find()
+            comment['name'] =
+            comment['time'] =
+            comment['replyNum'] =
+            comments.append(comment)
+        except:
+            print('出了点小问题')
+    return comments
 
 def saveFile(dict):
     #with open ... as  读写文档
@@ -30,12 +43,12 @@ def saveFile(dict):
 
 
 def main(base_url,page):
-    url_list = []
+    list_url = []
     for i in range(0,page):
-        url_list.append(base_url + '&pn=' + str(50 * i))
+        list_url.append(base_url + '&pn=' + str(50 * i))
     print('网页列表保存完毕，开始筛选信息')
 
-    for url in url_list:
+    for url in list_url:
         content = get_content(url)
         saveFile(content)
     print('信息保存完毕')
